@@ -43,6 +43,8 @@ let registerService = async (data) => {
       userName: data.username,
       role: "user",
     });
+    console.log('abc');
+    
     return {
       errCode: 0,
       errMessage: "Register success",

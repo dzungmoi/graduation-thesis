@@ -56,16 +56,16 @@ const HomePage = () =>{
                     <FeatureCard
                         icon={<FaSeedling />}
                         title="Giống Cafe"
-                        description="Tìm hiểu về các giống cafe phổ biến, đặc điểm và hướng dẫn canh tác phù hợp."
+                        description="Tìm hiểu về các giống cafe phổ biến, đặc điểm và hướng dẫn trồng phù hợp."
                         buttonText="Xem ngay"
                         onClick={() => handleNavigation('/cafe-variety')}
                     />
                     <div className="image-container">
-                        <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/800x0/https://cms-prod.s3-sgn09.fptcloud.com/lua_mi_va_lua_gao_khac_nhau_nhu_the_nao_huong_dan_ban_cach_an_phu_hop_de_tot_cho_suc_khoe_2_61112fb4bd.jpg" alt="Giống lúalúa" />
+                        <img src="https://vietcoffee.com.vn/wp-content/uploads/2016/06/nhung-vung-trong-ca-phe-arabica-ngon-o-viet-nam-vietcoffee-1.jpg" alt="Giống cafe" />
                     </div>
 
                     <div className="image-container">
-                        <img src="https://psc1.com/upload_images/images/2021/09/02/Benh%20dao%20on.jpg" alt="Sâu bệnh" />
+                        <img src="https://phadincoffee.com/wp-content/uploads/2016/01/tim-hieu-nhung-loai-sau-benh-chinh-tren-cay-ca-phe-2.jpg" alt="Sâu bệnh" />
                     </div>
                     <FeatureCard
                         icon={<FaBug />}
@@ -77,17 +77,17 @@ const HomePage = () =>{
 
                     <FeatureCard
                         icon={<FaTractor />}
-                        title="Kỹ Thuật Canh Tác"
-                        description="Hướng dẫn chi tiết về kỹ thuật canh tác cafe từ các chuyên gia nông nghiệp."
+                        title="Kỹ Thuật Trồng Trọt"
+                        description="Hướng dẫn chi tiết về kỹ thuật trồng cafe từ các chuyên gia nông nghiệp."
                         buttonText="Xem ngay"
                         onClick={() => handleNavigation('/cultivation')}
                     />
                     <div className="image-container">
-                        <img src="https://khoahockythuat.ninhbinh.gov.vn/public/userfiles/image/Nam%202022/Thang_10/Quy_trinh_canh_tac_Lua_huu_co.jpg" alt="Ứng dụng VietPlant" />
+                        <img src="https://www.mashed.com/img/gallery/foods-you-wouldnt-recognize-in-their-natural-state/coffee-1497622618.jpg" alt="Ứng dụng VietPlant" />
                     </div>
 
                     <div className="image-container">
-                        <img src="https://binhdien.com/images/2018/mo_hinh_lua_tom.jpg" alt="Ứng dụng VietPlant" />
+                        <img src="https://www.helenacoffee.vn/wp-content/uploads/2022/02/All-Arabica-Varieties-1-790x527.jpg" alt="Ứng dụng VietPlant" />
                     </div>
                     <FeatureCard
                         icon={<FaChartBar />}
