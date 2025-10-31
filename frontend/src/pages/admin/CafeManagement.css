@@ -269,12 +269,12 @@
 
 #list-cafe th:nth-child(2),
 #list-cafe td:nth-child(2) {
-  width: 10%; /* Cột tên lúa */
+  width: 10%; /* Cột tên cà phê */
 }
 
 #list-cafe th:nth-child(3),
 #list-cafe td:nth-child(3) {
-  width: 15%; /* Cột loại lúa */
+  width: 15%; /* Cột loại cà phê */
 }
 
 #list-cafe th:nth-child(4),

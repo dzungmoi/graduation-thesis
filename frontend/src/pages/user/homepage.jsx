@@ -42,7 +42,7 @@ const HomePage = () =>{
                 <h3 className="features-title"> CÁC TÍNH NĂNG NỔI BẬT</h3>
                 <div className="feature-list-grid">
                     <div className="image-container">
-                        <img src="https://cdn.huaf.edu.vn/huafweb/sites/9/2022/05/anh-6.jpg" alt="AI chẩn đoán" />
+                        <img src="https://43factory.coffee/wp-content/uploads/2022/12/202301040805-Cac-loai-benh-tren-cay-ca-phe-thuong-gap-01.jpg" alt="AI chẩn đoán" />
                     </div>
                     <FeatureCard
                         icon={<FaMicroscope />}

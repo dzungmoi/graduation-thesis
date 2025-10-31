@@ -11,7 +11,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      riceVarietyId: {
+      cafeVarietyId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {

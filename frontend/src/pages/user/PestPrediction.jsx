@@ -61,7 +61,7 @@ const PestPrediction = ({ isOpen, onClose }) => {
             if (pestType === 'Healthy') {
                 setResult({
                     pest_info: {
-                        name: 'Cây lúa khỏe mạnh',
+                        name: 'Cây cà phê khỏe mạnh',
                         isHealthy: true
                     }
                 });
@@ -117,7 +117,7 @@ const PestPrediction = ({ isOpen, onClose }) => {
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={handleModalClose}>&times;</span>
-                <h2>Nhận diện sâu bệnh lúa</h2>
+                <h2>Nhận diện sâu bệnh cà phê</h2>
                 <form onSubmit={handleSubmit}>
                     <input type="file" accept="image/*" onChange={handleFileChange} className="file-input" />
                     {previewUrl && <img src={previewUrl} alt="Preview" style={{ width: '200px', marginTop: '10px' }} />}

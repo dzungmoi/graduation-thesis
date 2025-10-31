@@ -101,7 +101,7 @@ let createCafeService = async (cafeData, files) => {
         // let uploadRes = await imageKit.upload({
         //     file: file.data,
         //     fileName: file.name,
-        //     folder: '/rice',
+        //     folder: '/cafe',
         // });
         try {
             let uploadRes = await imageKit.upload({
@@ -254,7 +254,7 @@ let deleteCafeService = async (cafeId) => {
       // Xoá ảnh trên ImageKit nếu có
       if (cafe.imageFileId) {  // bạn cần lưu field này khi upload
         try {
-          await imagekit.deleteFile(rice.imageFileId);
+          await imagekit.deleteFile(cafe.imageFileId);
         } catch (imgErr) {
           console.warn('Không thể xóa ảnh trên ImageKit:', imgErr.message);
         }

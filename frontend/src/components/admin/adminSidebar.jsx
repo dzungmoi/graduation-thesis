@@ -20,8 +20,8 @@ const Sidebar = () => {
           <li className={location.pathname === "/admin/user-management" ? "active" : ""} onClick={() => navigate("/admin/user-management")}> 
             <FaUser className="icon" /> Quản lý người dùng
           </li>
-          <li className={location.pathname === "/admin/rice-management" ? "active" : ""} onClick={() => navigate("/admin/rice-management")}> 
-            <FaSeedling className="icon" /> Quản lý giống lúa
+          <li className={location.pathname === "/admin/cafe-management" ? "active" : ""} onClick={() => navigate("/admin/cafe-management")}> 
+            <FaSeedling className="icon" /> Quản lý giống cà phê
           </li>
           <li className={location.pathname === "/admin/pest-diseases-management" ? "active" : ""} onClick={() => navigate("/admin/pest-diseases-management")}> 
             <FaBug className="icon" /> Quản lý sâu bệnh
