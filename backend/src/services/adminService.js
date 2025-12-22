@@ -612,6 +612,8 @@ let createCultivationService = async (cultivationData) => {
 
         let newCultivation = await db.CultivationTechnique.create({
             region: cultivationData.region,
+            variety: cultivationData.variety,
+            growthStage: cultivationData.growthStage,
             descriptionMarkdown: cultivationData.descriptionMarkdown,
             descriptionHTML: cultivationData.descriptionHTML,
         });
@@ -666,6 +668,8 @@ let updateCultivationService = async (cultivationId, updateData) => {
         }
 
         cultivation.region = updateData.region || cultivation.region;
+        cultivation.variety = updateData.variety || cultivation.variety;
+        cultivation.growthStage = updateData.growthStage || cultivation.growthStage;
         cultivation.descriptionMarkdown = updateData.descriptionMarkdown || cultivation.descriptionMarkdown;
         cultivation.descriptionHTML = updateData.descriptionHTML || cultivation.descriptionHTML;
 

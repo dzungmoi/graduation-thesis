@@ -13,6 +13,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      variety: {
+        type: Sequelize.STRING
+      },  
+      growthStage: {
+        type: Sequelize.STRING
+      }, 
       descriptionMarkdown: {
         type: Sequelize.TEXT('long')
       },

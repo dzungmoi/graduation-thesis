@@ -12,6 +12,8 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     region: '',
+    variety: '',
+    growthStage: '',
     descriptionMarkdown: '',
     descriptionHTML: ''
   });
@@ -22,6 +24,8 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
       if (!initialData) {
         setFormData({
           region: '',
+          variety: '',
+          growthStage: '',
           descriptionMarkdown: '',
           descriptionHTML: ''
         });
@@ -32,6 +36,8 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
     if (isEditing && initialData) {
       setFormData({
         region: initialData.region || '',
+        variety: initialData.variety || '',
+        growthStage: initialData.growthStage || '',
         descriptionMarkdown: initialData.descriptionMarkdown || '',
         descriptionHTML: initialData.descriptionHTML || ''
       });
@@ -80,6 +86,8 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
       // Reset form data after submission
       setFormData({
         region: '',
+        variety: '',
+        growthStage: '',
         descriptionMarkdown: '',
         descriptionHTML: ''
       });
@@ -110,6 +118,28 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
               onChange={handleInputChange}
               placeholder="Nhập vùng miền áp dụng"
             />
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <div className='form-group'>
+              <label>Chọn giống</label>
+              <input
+                  type="text"
+                  name="variety"
+                  value={formData.variety}
+                  onChange={handleInputChange}
+                  placeholder="Nhập giống cây trồng"
+                />
+            </div>
+            <div className='form-group'>
+              <label>Giai đoạn phát triển</label>
+              <input
+                type="text"
+                name="growthStage"
+                value={formData.growthStage}
+                onChange={handleInputChange}
+                placeholder="Nhập giai doan phát triển"
+              />
+            </div>
           </div>
 
           <div className="form-group">
