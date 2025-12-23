@@ -15,7 +15,9 @@ import CultivationManagement from "./pages/admin/CultivationManagement";
 import UserManagement from "./pages/admin/UserManagement";
 import CultivationList from "./pages/user/CultivationList";
 import FarmingModelManagement from "./pages/admin/FarmingModelManagement";
+import FarmReviewManagement from "./pages/admin/FarmReviewManagement";
 import ModelFarmList from "./pages/user/ModelFarmList";
+import MyFarm from "./pages/user/MyFarm";
 function App() {
   return (
     <Router future={{ v7_startTransition: true }}>
@@ -33,6 +35,7 @@ function App() {
             <Route path="/admin/cultivation-management" element={<CultivationManagement />} />
             <Route path="/admin/user-management" element={<UserManagement />} />
             <Route path="/admin/farming-model-management" element={<FarmingModelManagement />} />
+            <Route path="/admin/farm-review" element={<FarmReviewManagement />} />
           </Route>
 
           {/* Route bảo vệ dành cho User */}
@@ -43,6 +46,7 @@ function App() {
             <Route path="/pest-disease/:id" element={<PestDiseaseDetail />} />
             <Route path="/cultivation" element={<CultivationList />} />
             <Route path="/model-farm" element={<ModelFarmList />} />
+            <Route path="/my-farm" element={<MyFarm />} />
           </Route>
         </Routes>
       </AuthProvider>

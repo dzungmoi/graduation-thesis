@@ -12,6 +12,13 @@ let userRoute = (app) => {
   router.get("/get-pest-diseases-category",userController.getPestDiseasesCategory)
   router.get("/get-pest-diseases-stages",userController.getPestDiseasesStages)
   router.post("/pest-prediction",userController.pestPrediction);
+
+  // Nông trại của tôi
+  router.get("/my-farms", authenticateToken, userController.getMyFarms);
+  router.post("/my-farms", authenticateToken, userController.createMyFarm);
+  router.get("/my-farms/:farmId/weekly-updates", authenticateToken, userController.getMyFarmUpdates);
+  router.post("/my-farms/:farmId/weekly-updates", authenticateToken, userController.upsertWeeklyUpdate);
+
   return app.use("/users", router);
 };
 

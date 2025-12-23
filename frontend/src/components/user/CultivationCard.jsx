@@ -4,7 +4,7 @@ const CultivationCard = ({ cultivation }) => {
   return (
     <div className="cultivation-card">
       <div className="cultivation-header">
-        <h3>{cultivation.region}</h3>
+        <h3>{cultivation.variety}</h3>
       </div>
       <div className="cultivation-content">
         <div 

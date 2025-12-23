@@ -362,6 +362,27 @@ const getTopPestPredictions = async (req, res) => {
         });
     }
 };
+
+
+// ===================== ADMIN - ĐÁNH GIÁ NÔNG TRẠI =====================
+let getAllFarmWeeklyUpdates = async (req, res) => {
+    try {
+        let data = await adminService.getAllFarmWeeklyUpdatesService();
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+};
+
+let createOrUpdateFarmReview = async (req, res) => {
+    try {
+        let data = await adminService.createOrUpdateFarmReviewService(req.user.id, req.params.updateId, req.body);
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+};
+
 module.exports = {
     getAllUser,
     createUser,
@@ -387,5 +408,6 @@ module.exports = {
     getFarmingModelById,
     updateFarmingModel,
     deleteFarmingModel,
-    getTopPestPredictions,
+    getTopPestPredictions,  getAllFarmWeeklyUpdates,
+  createOrUpdateFarmReview,
 };

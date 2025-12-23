@@ -9,10 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      region: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       variety: {
         type: Sequelize.STRING
       },  

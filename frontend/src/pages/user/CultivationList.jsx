@@ -15,6 +15,8 @@ const CultivationList = () => {
       try {
         const response = await getAllCultivation();
         if (response.data.errCode === 0) {
+          console.log(response.data);
+          
           setCultivations(response.data.data);
         } else {
           setError('Không thể tải dữ liệu');
@@ -57,7 +59,7 @@ const CultivationList = () => {
     <div className="cultivation-page">
       <Header />
       <div className="cultivation-container">
-        <h1 className="page-title">Quy trình canh tác theo vùng miền</h1>
+        <h1 className="page-title">Quy trình canh tác theo giống cây</h1>
 
         <div className="table-of-contents">
           <h2>Mục lục</h2>
@@ -69,7 +71,7 @@ const CultivationList = () => {
                   className="toc-link"
                 >
                   <span className="toc-number">{index + 1}.</span>
-                  <span className="toc-text">Vùng {cultivation.region}</span>
+                  <span className="toc-text">Giống cây {cultivation.variety}</span>
                 </button>
               </li>
             ))}

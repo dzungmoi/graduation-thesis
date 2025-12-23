@@ -222,11 +222,156 @@ let pestPredictionService = async (data, files) => {
   };
 };
 
+
+
+// ===================== NÔNG TRẠI CỦA TÔI =====================
+// UserFarm
+const createMyFarmService = async (userId, payload) => {
+  try {
+    const { cafeVarietyId, farmName, location, areaHa, plantedAt, note } = payload;
+
+    if (!cafeVarietyId || !farmName) {
+      return { errCode: 1, errMessage: "Thiếu cafeVarietyId hoặc farmName" };
+    }
+
+    const variety = await db.CafeVariety.findByPk(cafeVarietyId);
+    if (!variety) return { errCode: 2, errMessage: "Không tìm thấy giống cà phê" };
+
+    const farm = await db.UserFarm.create({
+      userId,
+      cafeVarietyId,
+      farmName,
+      location: location || null,
+      areaHa: areaHa ?? null,
+      plantedAt: plantedAt || null,
+      note: note || null,
+    });
+
+    return { errCode: 0, errMessage: "OK", data: farm };
+  } catch (e) {
+    return { errCode: -1, errMessage: "Server error", error: e };
+  }
+};
+
+const getMyFarmsService = async (userId) => {
+  try {
+    const farms = await db.UserFarm.findAll({
+      where: { userId },
+      include: [
+        { model: db.CafeVariety, as: "cafeVariety", attributes: ["id", "name", "image_url"] },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
+    return { errCode: 0, errMessage: "OK", data: farms };
+  } catch (e) {
+    return { errCode: -1, errMessage: "Server error", error: e };
+  }
+};
+
+const getFarmUpdatesService = async (userId, farmId) => {
+  try {
+    const farm = await db.UserFarm.findOne({ where: { id: farmId, userId } });
+    if (!farm) return { errCode: 1, errMessage: "Không tìm thấy nông trại" };
+
+    const updates = await db.FarmWeeklyUpdate.findAll({
+      where: { farmId },
+      include: [
+        { model: db.GrowthStage, as: "growthStage", attributes: ["id", "name"] },
+        { model: db.FarmUpdateReview, as: "review", include: [{ model: db.User, as: "admin", attributes: ["id", "userName", "email"] }] },
+      ],
+      order: [["weekStart", "DESC"]],
+    });
+
+    return { errCode: 0, errMessage: "OK", data: updates };
+  } catch (e) {
+    return { errCode: -1, errMessage: "Server error", error: e };
+  }
+};
+
+// helper: tính ngày thứ 2 của tuần (Asia/Bangkok) từ một ngày bất kỳ
+const normalizeToWeekStart = (dateStr) => {
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return null;
+  // dùng UTC để tránh lệch timezone khi lưu DATEONLY
+  const day = d.getUTCDay(); // 0..6 (CN..T7)
+  const diff = (day === 0 ? -6 : 1 - day); // về thứ 2
+  d.setUTCDate(d.getUTCDate() + diff);
+  return d.toISOString().slice(0, 10);
+};
+
+const upsertWeeklyUpdateService = async (userId, farmId, payload) => {
+  try {
+    const { weekStart, growthStageId, healthStatus, noteMarkdown, noteHTML, imageBase64 } = payload;
+
+    const farm = await db.UserFarm.findOne({ where: { id: farmId, userId } });
+    if (!farm) return { errCode: 1, errMessage: "Không tìm thấy nông trại" };
+
+    const ws = normalizeToWeekStart(weekStart);
+    if (!ws) return { errCode: 2, errMessage: "weekStart không hợp lệ" };
+
+    // upload image nếu có
+    let image_url = null;
+    let image_file_id = null;
+    if (imageBase64) {
+      const uploadRes = await imageKit.upload({
+        file: imageBase64,
+        fileName: `farm_update_${farmId}_${ws}.jpg`,
+        folder: "/farm_updates",
+      });
+      image_url = uploadRes.url;
+      image_file_id = uploadRes.fileId;
+    }
+
+    const [record, created] = await db.FarmWeeklyUpdate.findOrCreate({
+      where: { farmId, weekStart: ws },
+      defaults: {
+        farmId,
+        weekStart: ws,
+        growthStageId: growthStageId || null,
+        healthStatus: healthStatus || "tot",
+        noteMarkdown: noteMarkdown || null,
+        noteHTML: noteHTML || null,
+        image_url,
+        image_file_id,
+      },
+    });
+
+    if (!created) {
+      // nếu có review rồi thì không cho sửa nữa (tránh chỉnh sau khi admin đánh giá)
+      const review = await db.FarmUpdateReview.findOne({ where: { updateId: record.id } });
+      if (review) {
+        return { errCode: 3, errMessage: "Bản cập nhật đã được Admin đánh giá, không thể chỉnh sửa" };
+      }
+
+      // nếu upload ảnh mới thì xoá ảnh cũ (nếu có)
+      if (image_url && record.image_file_id) {
+        try { await imageKit.deleteFile(record.image_file_id); } catch (_) {}
+      }
+
+      await record.update({
+        growthStageId: growthStageId || record.growthStageId,
+        healthStatus: healthStatus || record.healthStatus,
+        noteMarkdown: noteMarkdown ?? record.noteMarkdown,
+        noteHTML: noteHTML ?? record.noteHTML,
+        image_url: image_url || record.image_url,
+        image_file_id: image_file_id || record.image_file_id,
+      });
+    }
+
+    return { errCode: 0, errMessage: "OK", data: record };
+  } catch (e) {
+    return { errCode: -1, errMessage: "Server error", error: e };
+  }
+};
+
 module.exports = {
   registerService,
   loginService,
   getCafeTypeService,
   getPestDiseasesCategoryService,
   getPestDiseasesStagesService,
-  pestPredictionService,
+  pestPredictionService,  createMyFarmService,
+  getMyFarmsService,
+  getFarmUpdatesService,
+  upsertWeeklyUpdateService,
 };

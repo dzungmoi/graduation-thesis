@@ -11,7 +11,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   const isEditing = Boolean(initialData);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    region: '',
     variety: '',
     growthStage: '',
     descriptionMarkdown: '',
@@ -23,7 +22,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   useEffect(() => {
       if (!initialData) {
         setFormData({
-          region: '',
           variety: '',
           growthStage: '',
           descriptionMarkdown: '',
@@ -35,7 +33,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   useEffect(() => {
     if (isEditing && initialData) {
       setFormData({
-        region: initialData.region || '',
         variety: initialData.variety || '',
         growthStage: initialData.growthStage || '',
         descriptionMarkdown: initialData.descriptionMarkdown || '',
@@ -61,8 +58,8 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.region.trim()) {
-      return setError('Vui lòng nhập vùng miền!');
+    if (!formData.variety.trim()) {
+      return setError('Vui lòng nhập giống cây trồng!');
     }
     setError('');
     setLoading(true);
@@ -85,7 +82,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
       setLoading(false);
       // Reset form data after submission
       setFormData({
-        region: '',
         variety: '',
         growthStage: '',
         descriptionMarkdown: '',
@@ -109,16 +105,7 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
         {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Vùng miền</label>
-            <input
-              type="text"
-              name="region"
-              value={formData.region}
-              onChange={handleInputChange}
-              placeholder="Nhập vùng miền áp dụng"
-            />
-          </div>
+         
           <div style={{ display: 'flex', gap: '10px' }}>
             <div className='form-group'>
               <label>Chọn giống</label>

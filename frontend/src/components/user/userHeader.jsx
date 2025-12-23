@@ -28,6 +28,7 @@ const UserHeader = () => {
                     <li><NavLink to="/pest-disease" className={({ isActive }) => isActive ? "active" : ""}>Sâu bệnh</NavLink></li>
                     <li><NavLink to="/cultivation" className={({ isActive }) => isActive ? "active" : ""}>Kỹ thuật canh tác</NavLink></li>
                     <li><NavLink to="/model-farm" className={({ isActive }) => isActive ? "active" : ""}>Mô hình canh tác</NavLink></li>
+                            <li><NavLink to="/my-farm" className={({ isActive }) => isActive ? "active" : ""}>Nông trại của tôi</NavLink></li>
                 </ul>
                 <div className="user-section">
                     {user ? (
@@ -57,6 +58,7 @@ const UserHeader = () => {
                     <li><NavLink to="/cultivation" onClick={closeSidebar}>Kỹ Thuật Canh Tác</NavLink></li>
                     <li><NavLink to="/pest-disease" onClick={closeSidebar}>Sâu bệnh</NavLink></li>
                     <li><NavLink to="/model-farm" onClick={closeSidebar}>Mô hình canh tác</NavLink></li>
+                        <li><NavLink to="/my-farm" onClick={closeSidebar}>Nông trại của tôi</NavLink></li>
                 </ul>
                 <div className="sidebar-user">
                     {user ? (

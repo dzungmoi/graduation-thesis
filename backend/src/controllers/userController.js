@@ -91,6 +91,45 @@ let pestPrediction = async(req,res) => {
     return res.status(400).json({error: error})
   }
 }
+
+
+// ===================== NÔNG TRẠI CỦA TÔI =====================
+let createMyFarm = async (req, res) => {
+  try {
+    let data = await userService.createMyFarmService(req.user.id, req.body);
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+let getMyFarms = async (req, res) => {
+  try {
+    let data = await userService.getMyFarmsService(req.user.id);
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+let getMyFarmUpdates = async (req, res) => {
+  try {
+    let data = await userService.getFarmUpdatesService(req.user.id, req.params.farmId);
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+let upsertWeeklyUpdate = async (req, res) => {
+  try {
+    let data = await userService.upsertWeeklyUpdateService(req.user.id, req.params.farmId, req.body);
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -99,5 +138,8 @@ module.exports = {
   getCafeTypes,
   getPestDiseasesCategory,
   getPestDiseasesStages,
-  pestPrediction,
+  pestPrediction,  createMyFarm,
+  getMyFarms,
+  getMyFarmUpdates,
+  upsertWeeklyUpdate,
 };

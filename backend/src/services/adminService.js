@@ -38,17 +38,17 @@ let createUserService = async (userData) => {
 let updateUserService = async (userId, userData) => {
     try {
         let user = await db.User.findOne({
-            where:{id: userId},
+            where: { id: userId },
             raw: false
         });
         if (user) {
             user.userName = userData.username,
-            user.role = userData.role,
-            user.image = userData.image
+                user.role = userData.role,
+                user.image = userData.image
 
             await user.save();
             return { errCode: 0, errMessage: "User updated successfully", data: user };
-        }else{
+        } else {
             return { errCode: 1, errMessage: "User not found" };
         }
 
@@ -56,7 +56,7 @@ let updateUserService = async (userId, userData) => {
         //     userData.password = bcrypt.hashSync(userData.password, salt);
         // }
 
-        
+
         // return { errCode: 0, errMessage: "User updated successfully", data: user };
     } catch (e) {
         console.log(e)
@@ -67,7 +67,7 @@ let updateUserService = async (userId, userData) => {
 let deleteUserService = async (userId) => {
     try {
         let user = await db.User.findOne({
-            where: {id: userId},
+            where: { id: userId },
             raw: false
         })
         if (!user) {
@@ -143,7 +143,7 @@ let createCafeService = async (cafeData, files) => {
     };
 };
 
-let getAllCafeService = async() => {
+let getAllCafeService = async () => {
     try {
         let cafes = await db.CafeVariety.findAll({
             include: [
@@ -151,7 +151,7 @@ let getAllCafeService = async() => {
                     model: db.CafeType,
                     as: 'CafeTypes',
                     attributes: ['id', 'name'],
-                    through: { attributes: [] } 
+                    through: { attributes: [] }
                 }
             ],
             raw: false,
@@ -163,15 +163,15 @@ let getAllCafeService = async() => {
     }
 }
 
-let getCafeByIdService = async(cafeId) => {
+let getCafeByIdService = async (cafeId) => {
     let cafe = await db.CafeVariety.findOne({
-        where: {id: cafeId},
+        where: { id: cafeId },
         include: [
             {
                 model: db.CafeType,
                 as: 'CafeTypes',
                 attributes: ['id', 'name'],
-                through: { attributes: [] } 
+                through: { attributes: [] }
             }
         ],
         raw: false,
@@ -192,7 +192,7 @@ let updateCafeService = async (cafeId, updateData, files) => {
                 errCode: 1,
                 errMessage: "Cafe variety not found"
             };
-        } 
+        }
         cafe.name = updateData.name || cafe.name;
         cafe.description = updateData.description || cafe.description;
         cafe.descriptionMarkdown = updateData.descriptionMarkdown || cafe.descriptionMarkdown;
@@ -238,42 +238,42 @@ let updateCafeService = async (cafeId, updateData, files) => {
 
 let deleteCafeService = async (cafeId) => {
     try {
-      let cafe = await db.CafeVariety.findOne({
-        where: { id: cafeId },
-        include: [{ model: db.CafeType, as: 'CafeTypes' }],
-        raw: false
-      });
-  
-      if (!cafe) {
-        return { errCode: 1, errMessage: "Giống cafe không tồn tại!" };
-      }
-  
-      // Xóa liên kết bảng trung gian
-      await cafe.setCafeTypes([]); // xoá quan hệ N:N
-  
-      // Xoá ảnh trên ImageKit nếu có
-      if (cafe.imageFileId) {  // bạn cần lưu field này khi upload
-        try {
-          await imagekit.deleteFile(cafe.imageFileId);
-        } catch (imgErr) {
-          console.warn('Không thể xóa ảnh trên ImageKit:', imgErr.message);
+        let cafe = await db.CafeVariety.findOne({
+            where: { id: cafeId },
+            include: [{ model: db.CafeType, as: 'CafeTypes' }],
+            raw: false
+        });
+
+        if (!cafe) {
+            return { errCode: 1, errMessage: "Giống cafe không tồn tại!" };
         }
-      }
-  
-      // Xóa giống cafe
-      await cafe.destroy();
-  
-      return {
-        errCode: 0,
-        message: 'Xóa giống cafe thành công!'
-      };
+
+        // Xóa liên kết bảng trung gian
+        await cafe.setCafeTypes([]); // xoá quan hệ N:N
+
+        // Xoá ảnh trên ImageKit nếu có
+        if (cafe.imageFileId) {  // bạn cần lưu field này khi upload
+            try {
+                await imagekit.deleteFile(cafe.imageFileId);
+            } catch (imgErr) {
+                console.warn('Không thể xóa ảnh trên ImageKit:', imgErr.message);
+            }
+        }
+
+        // Xóa giống cafe
+        await cafe.destroy();
+
+        return {
+            errCode: 0,
+            message: 'Xóa giống cafe thành công!'
+        };
     } catch (e) {
-      console.error("Delete error:", e);
-      return {
-        errCode: -1,
-        errMessage: "Server error",
-        error: e
-      };
+        console.error("Delete error:", e);
+        return {
+            errCode: -1,
+            errMessage: "Server error",
+            error: e
+        };
     }
 };
 let createPestDiseaseService = async (pestData, files) => {
@@ -316,8 +316,8 @@ let createPestDiseaseService = async (pestData, files) => {
 
         // Xử lý các ảnh phụ
         if (files && files['image-other']) {
-            const otherImages = Array.isArray(files['image-other']) 
-                ? files['image-other'] 
+            const otherImages = Array.isArray(files['image-other'])
+                ? files['image-other']
                 : [files['image-other']];
 
             for (let file of otherImages) {
@@ -462,7 +462,7 @@ let updatePestDiseaseService = async (pestId, updateData, files) => {
         if (files && files.image) {
             const file = Array.isArray(files.image) ? files.image[0] : files.image;
             const oldFileId = pest.image_file_id;
-            
+
             const uploadRes = await imageKit.upload({
                 file: file.data,
                 fileName: file.name,
@@ -488,8 +488,8 @@ let updatePestDiseaseService = async (pestId, updateData, files) => {
                 where: { pest_id: pestId }
             });
 
-            const otherImages = Array.isArray(files['image-other']) 
-                ? files['image-other'] 
+            const otherImages = Array.isArray(files['image-other'])
+                ? files['image-other']
                 : [files['image-other']];
 
             for (let file of otherImages) {
@@ -902,6 +902,55 @@ const getTopPestPredictionService = async (limit = 3) => {
     }
 };
 
+
+
+// ===================== ADMIN - ĐÁNH GIÁ NÔNG TRẠI =====================
+let getAllFarmWeeklyUpdatesService = async () => {
+    try {
+        const updates = await db.FarmWeeklyUpdate.findAll({
+            include: [
+                {
+                    model: db.UserFarm,
+                    as: 'farm',
+                    include: [
+                        { model: db.User, as: 'user', attributes: ['id', 'userName', 'email'] },
+                        { model: db.CafeVariety, as: 'cafeVariety', attributes: ['id', 'name'] },
+                    ],
+                },
+                { model: db.GrowthStage, as: 'growthStage', attributes: ['id', 'name'] },
+                { model: db.FarmUpdateReview, as: 'review', include: [{ model: db.User, as: 'admin', attributes: ['id', 'userName', 'email'] }] },
+            ],
+            order: [['weekStart', 'DESC']],
+        });
+        return { errCode: 0, errMessage: "OK", data: updates };
+    } catch (e) {
+        return { errCode: -1, errMessage: "Server error", error: e };
+    }
+};
+
+let createOrUpdateFarmReviewService = async (adminId, updateId, payload) => {
+    try {
+        const { rating, comment } = payload;
+        if (!rating) return { errCode: 1, errMessage: "Thiếu rating" };
+
+        const update = await db.FarmWeeklyUpdate.findByPk(updateId);
+        if (!update) return { errCode: 2, errMessage: "Không tìm thấy bản cập nhật" };
+
+        const [review, created] = await db.FarmUpdateReview.findOrCreate({
+            where: { updateId },
+            defaults: { updateId, adminId, rating, comment: comment || null },
+        });
+
+        if (!created) {
+            await review.update({ adminId, rating, comment: comment ?? review.comment });
+        }
+
+        return { errCode: 0, errMessage: "OK", data: review };
+    } catch (e) {
+        return { errCode: -1, errMessage: "Server error", error: e };
+    }
+};
+
 module.exports = {
     getAllUserService,
     createUserService,
@@ -927,5 +976,7 @@ module.exports = {
     getFarmingModelByIdService,
     updateFarmingModelService,
     deleteFarmingModelService,
-    getTopPestPredictionService
+    getTopPestPredictionService,
+    getAllFarmWeeklyUpdatesService,
+    createOrUpdateFarmReviewService,
 };

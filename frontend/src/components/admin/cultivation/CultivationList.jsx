@@ -63,7 +63,7 @@ const CultivationList = ({ onEdit, refreshTrigger }) => {
             <thead>
               <tr>
                 <th>STT</th>
-                <th>Vùng miền</th>
+                <th>Tên giống cây</th>
                 <th>Mô tả ngắn</th>
                 <th>Thao tác</th>
               </tr>
@@ -72,7 +72,7 @@ const CultivationList = ({ onEdit, refreshTrigger }) => {
               {currentCul.map((cultivation, index) => (
                 <tr key={cultivation.id}>
                   <td>{indexOfFirstItem+index + 1}</td>
-                  <td>{cultivation.region}</td>
+                  <td>{cultivation.variety}</td>
                   <td>
                     {cultivation.descriptionHTML && 
                       <div dangerouslySetInnerHTML={{ 

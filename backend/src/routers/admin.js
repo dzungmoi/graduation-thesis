@@ -9,6 +9,11 @@ let adminRoute = (app) => {
   router.post("/create-user", authenticateToken, authorizeAdmin, adminController.createUser);
   router.put("/update-user/:id", authenticateToken, authorizeAdmin, adminController.updateUser);
   router.delete("/delete-user/:id", authenticateToken, authorizeAdmin, adminController.deleteUser);
+
+  // nông trại - cập nhật tuần & đánh giá
+  router.get('/farm-weekly-updates', authenticateToken, authorizeAdmin, adminController.getAllFarmWeeklyUpdates);
+  router.post('/farm-weekly-updates/:updateId/review', authenticateToken, authorizeAdmin, adminController.createOrUpdateFarmReview);
+
   //cafe-variety
   router.post('/create-cafe',authenticateToken,authorizeAdmin, adminController.createCafe);
   router.get('/get-all-cafe',authenticateToken, adminController.getAllCafe);

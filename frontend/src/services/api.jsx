@@ -196,3 +196,30 @@ export const predictPestDisease = async(formData) => {
     })
     
 }
+
+
+// ===================== NÔNG TRẠI CỦA TÔI (User) =====================
+export const getMyFarms = async () => {
+  return await api.get("/users/my-farms");
+};
+
+export const createMyFarm = async (data) => {
+  return await api.post("/users/my-farms", data);
+};
+
+export const getMyFarmWeeklyUpdates = async (farmId) => {
+  return await api.get(`/users/my-farms/${farmId}/weekly-updates`);
+};
+
+export const upsertMyFarmWeeklyUpdate = async (farmId, data) => {
+  return await api.post(`/users/my-farms/${farmId}/weekly-updates`, data);
+};
+
+// ===================== ADMIN - ĐÁNH GIÁ NÔNG TRẠI =====================
+export const adminGetAllFarmWeeklyUpdates = async () => {
+  return await api.get("/admin/farm-weekly-updates");
+};
+
+export const adminReviewFarmWeeklyUpdate = async (updateId, data) => {
+  return await api.post(`/admin/farm-weekly-updates/${updateId}/review`, data);
+};

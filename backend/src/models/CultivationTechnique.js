@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
   };
   CultivationTechnique.init(
     {
-      region: DataTypes.STRING,
       variety: DataTypes.STRING,
       growthStage: DataTypes.STRING,
       descriptionMarkdown: DataTypes.TEXT('long'),
