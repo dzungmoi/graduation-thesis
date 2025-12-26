@@ -20,15 +20,15 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-      if (!initialData) {
-        setFormData({
-          variety: '',
-          growthStage: '',
-          descriptionMarkdown: '',
-          descriptionHTML: ''
-        });
-      }
-    }, [initialData]);
+    if (!initialData) {
+      setFormData({
+        variety: '',
+        growthStage: '',
+        descriptionMarkdown: '',
+        descriptionHTML: ''
+      });
+    }
+  }, [initialData]);
 
   useEffect(() => {
     if (isEditing && initialData) {
@@ -93,31 +93,31 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   return (
     <>
       {loading && (
-          <div className="loading-overlay">
-            <div className="loading-spinner"></div>
-            <div className="loading-text">
-              {isEditing ? 'Đang cập nhật kỹ thuật...' : 'Đang thêm kỹ thuật mới...'}
-            </div>
+        <div className="loading-overlay">
+          <div className="loading-spinner"></div>
+          <div className="loading-text">
+            {isEditing ? 'Đang cập nhật kỹ thuật...' : 'Đang thêm kỹ thuật mới...'}
           </div>
-        )}
+        </div>
+      )}
       <div className="cultivation-form">
         <h3>{isEditing ? 'Chỉnh sửa kỹ thuật canh tác' : 'Thêm kỹ thuật canh tác mới'}</h3>
         {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleSubmit}>
-         
+
           <div style={{ display: 'flex', gap: '10px' }}>
             <div className='form-group'>
               <label>Chọn giống</label>
               <input
-                  type="text"
-                  name="variety"
-                  value={formData.variety}
-                  onChange={handleInputChange}
-                  placeholder="Nhập giống cây trồng"
-                />
+                type="text"
+                name="variety"
+                value={formData.variety}
+                onChange={handleInputChange}
+                placeholder="Nhập giống cây trồng"
+              />
             </div>
-            <div className='form-group'>
+            {/* <div className='form-group'>
               <label>Giai đoạn phát triển</label>
               <input
                 type="text"
@@ -126,7 +126,7 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
                 onChange={handleInputChange}
                 placeholder="Nhập giai doan phát triển"
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="form-group">

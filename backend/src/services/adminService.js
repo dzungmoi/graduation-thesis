@@ -951,6 +951,23 @@ let createOrUpdateFarmReviewService = async (adminId, updateId, payload) => {
     }
 };
 
+
+// ===================== ADMIN - DANH SÁCH NÔNG TRẠI (TẤT CẢ USER) =====================
+let getAllFarmsService = async () => {
+    try {
+        const farms = await db.UserFarm.findAll({
+            include: [
+                { model: db.User, as: 'user', attributes: ['id', 'userName', 'email'] },
+                { model: db.CafeVariety, as: 'cafeVariety', attributes: ['id', 'name'] },
+            ],
+            order: [['createdAt', 'DESC']],
+        });
+        return { errCode: 0, errMessage: "OK", data: farms };
+    } catch (e) {
+        return { errCode: -1, errMessage: "Server error", error: e };
+    }
+};
+
 module.exports = {
     getAllUserService,
     createUserService,
@@ -979,4 +996,5 @@ module.exports = {
     getTopPestPredictionService,
     getAllFarmWeeklyUpdatesService,
     createOrUpdateFarmReviewService,
+    getAllFarmsService,
 };

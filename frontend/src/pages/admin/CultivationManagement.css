@@ -107,6 +107,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 /* .cultivation-form .rc-md-editor .html-preview .image-container,
 .cultivation-description .image-container {
   text-align: center;
@@ -144,8 +145,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Disabled button styles */
@@ -153,6 +159,7 @@
   opacity: 0.7;
   cursor: not-allowed;
 }
+
 /* === Buttons === */
 .form-actions {
   margin-top: 24px;
@@ -166,7 +173,8 @@
   font-family: 'Times New Roman', serif;
 }
 
-.submit-btn, .cancel-btn {
+.submit-btn,
+.cancel-btn {
   padding: 10px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -234,7 +242,8 @@ th {
   color: white;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #ddd;
   padding: 8px;
   font-family: 'Times New Roman', serif;
@@ -265,7 +274,7 @@ td:nth-child(4) {
   width: 15%;
 }
 
-tr:nth-child(even) {
+.cultivation-list tr:nth-child(even) {
   background-color: #f4edef;
 }
 
@@ -273,7 +282,8 @@ tr:hover {
   background-color: #ebe2e2;
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   margin-right: 5px;
   background: none;
   border: none;
@@ -281,7 +291,8 @@ tr:hover {
   color: inherit;
 }
 
-.edit-btn:hover, .delete-btn:hover {
+.edit-btn:hover,
+.delete-btn:hover {
   color: #db983b;
 }
 
@@ -290,9 +301,11 @@ tr:hover {
   0% {
     box-shadow: 0 0 0 0 rgba(219, 152, 59, 0.4);
   }
+
   70% {
     box-shadow: 0 0 0 10px rgba(219, 152, 59, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(219, 152, 59, 0);
   }

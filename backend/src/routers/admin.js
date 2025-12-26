@@ -12,6 +12,7 @@ let adminRoute = (app) => {
 
   // nông trại - cập nhật tuần & đánh giá
   router.get('/farm-weekly-updates', authenticateToken, authorizeAdmin, adminController.getAllFarmWeeklyUpdates);
+  router.get('/farms', authenticateToken, authorizeAdmin, adminController.getAllFarms);
   router.post('/farm-weekly-updates/:updateId/review', authenticateToken, authorizeAdmin, adminController.createOrUpdateFarmReview);
 
   //cafe-variety

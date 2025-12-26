@@ -12,12 +12,12 @@ let register = async (req, res) => {
 let login = async (req, res) => {
   try {
     let data = await userService.loginService(req.body);
-    if(data.errCode === 0){
+    if (data.errCode === 0) {
       // Thiết lập cookie HTTP-Only chứa token
       res.cookie('auth_token', data.token, {
         httpOnly: true,  // Cookie không thể truy cập bằng JavaScript
         secure: false, // process.env.NODE_ENV === 'production',  Chỉ gửi cookie qua HTTPS nếu ở môi trường production
-        maxAge: 3600000 ,  // Cookie hết hạn sau 1 phút ms
+        maxAge: 3600000,  // Cookie hết hạn sau 1 phút ms
         sameSite: 'Strict',  // Ngăn chặn CSRF (hoặc 'Lax' nếu bạn cần ít bảo mật hơn)
       });
     }
@@ -52,43 +52,43 @@ let logout = async (req, res) => {
   }
 };
 
-let getCafeTypes = async(req,res) => {
-  try{
+let getCafeTypes = async (req, res) => {
+  try {
     let cafeTypeList = await userService.getCafeTypeService();
-    return res.status(200).json({cafeTypeList})
-  }catch(error){
+    return res.status(200).json({ cafeTypeList })
+  } catch (error) {
     console.log(error)
-    return res.status(400).json({error: error})
+    return res.status(400).json({ error: error })
   }
 }
 
-let getPestDiseasesCategory = async(req,res) => {
-  try{
+let getPestDiseasesCategory = async (req, res) => {
+  try {
     let pestDiseaseCategoryList = await userService.getPestDiseasesCategoryService();
-    return res.status(200).json({pestDiseaseCategoryList})
-  }catch(error){
+    return res.status(200).json({ pestDiseaseCategoryList })
+  } catch (error) {
     console.log(error)
-    return res.status(400).json({error: error})
+    return res.status(400).json({ error: error })
   }
 }
 
-let getPestDiseasesStages = async(req,res) => {
-  try{
+let getPestDiseasesStages = async (req, res) => {
+  try {
     let pestDiseaseStagesList = await userService.getPestDiseasesStagesService();
-    return res.status(200).json({pestDiseaseStagesList})
-  }catch(error){
+    return res.status(200).json({ pestDiseaseStagesList })
+  } catch (error) {
     console.log(error)
-    return res.status(400).json({error: error})
+    return res.status(400).json({ error: error })
   }
 }
 
-let pestPrediction = async(req,res) => {
-  try{
-    let pestPredictionResult = await userService.pestPredictionService(req.body,req.files);
-    return res.status(200).json({pestPredictionResult})
-  }catch(error){
+let pestPrediction = async (req, res) => {
+  try {
+    let pestPredictionResult = await userService.pestPredictionService(req.body, req.files);
+    return res.status(200).json({ pestPredictionResult })
+  } catch (error) {
     console.log(error)
-    return res.status(400).json({error: error})
+    return res.status(400).json({ error: error })
   }
 }
 
@@ -123,12 +123,23 @@ let getMyFarmUpdates = async (req, res) => {
 
 let upsertWeeklyUpdate = async (req, res) => {
   try {
-    let data = await userService.upsertWeeklyUpdateService(req.user.id, req.params.farmId, req.body);
+    const payload = {
+      ...req.body,
+      file: req.files?.image, // 👈 giống farming model
+    };
+
+    let data = await userService.upsertWeeklyUpdateService(
+      req.user.id,
+      req.params.farmId,
+      payload
+    );
+
     return res.status(200).json(data);
   } catch (error) {
     return res.status(400).json({ error });
   }
 };
+
 
 module.exports = {
   register,
@@ -138,7 +149,7 @@ module.exports = {
   getCafeTypes,
   getPestDiseasesCategory,
   getPestDiseasesStages,
-  pestPrediction,  createMyFarm,
+  pestPrediction, createMyFarm,
   getMyFarms,
   getMyFarmUpdates,
   upsertWeeklyUpdate,

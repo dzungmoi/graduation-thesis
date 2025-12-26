@@ -142,8 +142,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Disabled button styles */
@@ -216,27 +221,32 @@
 /* Column widths */
 .farming-model-list th:nth-child(1),
 .farming-model-list td:nth-child(1) {
-  width: 5%;  /* STT */
+  width: 5%;
+  /* STT */
 }
 
 .farming-model-list th:nth-child(2),
 .farming-model-list td:nth-child(2) {
-  width: 20%;  /* Tên */
+  width: 20%;
+  /* Tên */
 }
 
 .farming-model-list th:nth-child(3),
 .farming-model-list td:nth-child(3) {
-  width: 20%;  /* Vùng miền */
+  width: 20%;
+  /* Vùng miền */
 }
 
 .farming-model-list th:nth-child(4),
 .farming-model-list td:nth-child(4) {
-  width: 40%;  /* Ảnh */
+  width: 40%;
+  /* Ảnh */
 }
 
 .farming-model-list th:nth-child(5),
 .farming-model-list td:nth-child(5) {
-  width: 15%;  /* Thao tác */
+  width: 15%;
+  /* Thao tác */
 }
 
 /* Table cells */

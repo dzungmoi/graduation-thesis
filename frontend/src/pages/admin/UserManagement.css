@@ -1,4 +1,3 @@
-
 .user-management {
   display: flex;
   height: 100vh;
@@ -75,7 +74,7 @@
 .form-group select[name="role"] {
   width: 378px;
   min-width: 150px;
-  padding-right: 30px; 
+  padding-right: 30px;
 }
 
 .form-group input:focus,
@@ -146,27 +145,32 @@
 /* Column widths */
 .user-list th:nth-child(1),
 .user-list td:nth-child(1) {
-  width: 10%;  /* STT */
+  width: 10%;
+  /* STT */
 }
 
 .user-list th:nth-child(2),
 .user-list td:nth-child(2) {
-  width: 25%;  /* Email */
+  width: 25%;
+  /* Email */
 }
 
 .user-list th:nth-child(3),
 .user-list td:nth-child(3) {
-  width: 25%;  /* Tên người dùng */
+  width: 25%;
+  /* Tên người dùng */
 }
 
 .user-list th:nth-child(4),
 .user-list td:nth-child(4) {
-  width: 20%;  /* Vai trò */
+  width: 20%;
+  /* Vai trò */
 }
 
 .user-list th:nth-child(5),
 .user-list td:nth-child(5) {
-  width: 20%;  /* Thao tác */
+  width: 20%;
+  /* Thao tác */
 }
 
 .user-list th,
@@ -226,4 +230,3 @@
   text-align: center;
   margin-bottom: 12px;
 }
-

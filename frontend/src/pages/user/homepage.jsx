@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserHeader from "../../components/user/userHeader";
 import UserFooter from "../../components/user/userFooter";
@@ -8,7 +8,7 @@ import './homepage.css'
 import PestPrediction from "./PestPrediction";
 import { FaMicroscope, FaSeedling, FaBug, FaTractor, FaChartBar } from 'react-icons/fa';
 
-const HomePage = () =>{
+const HomePage = () => {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleNavigation = (path) => {
@@ -19,7 +19,7 @@ const HomePage = () =>{
     }
     const closeModal = () => {
         setIsModalOpen(false);
-    }   
+    }
     return (
         <div>
             <UserHeader></UserHeader>
@@ -27,9 +27,9 @@ const HomePage = () =>{
                 <div className="banner-content">
                     <h2>CoffeViet</h2>
                     <h3>Trợ lý ảo cho nhà nông</h3>
-                    <p>Ứng dụng Nông nghiệp thông minh dễ dàng tra cứu thông tin về cafe và tích hợp công nghệ AI, 
-                    giúp người nông dân dễ dàng chẩn đoán và theo dõi quá trình 
-                    canh tác cafe hiệu quả.</p>
+                    <p>Ứng dụng Nông nghiệp thông minh dễ dàng tra cứu thông tin về cafe và tích hợp công nghệ AI,
+                        giúp người nông dân dễ dàng chẩn đoán và theo dõi quá trình
+                        canh tác cafe hiệu quả.</p>
                     <button className="explore-btn" onClick={() => handleNavigation('/disease-detection')}>
                         Khám phá ngay →
                     </button>
@@ -46,11 +46,10 @@ const HomePage = () =>{
                     </div>
                     <FeatureCard
                         icon={<FaMicroscope />}
-                        title="Chẩn Đoán Sâu Bệnh "
+                        title="Nông trại của tôi"
                         description="Chỉ cần chụp ảnh cây cafe, CoffeeViet sẽ đưa ra chẩn đoán và cách điều trị các loại sâu/bệnh bằng công nghệ nhận diện AI."
-                        buttonText="Chụp ảnh ngay"
-                        onClick={openModal}
-                        // onClick={() => handleNavigation('/disease-detection')}
+                        buttonText="Xem ngay"
+                        onClick={() => { window.scrollTo(0, 0); handleNavigation('/my-farm') }}
                     />
 
                     <FeatureCard

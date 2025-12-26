@@ -4,12 +4,12 @@ const jwt = require("jsonwebtoken");
 const imageKit = require('../config/imagekit.js');
 const salt = bcrypt.genSaltSync(10);
 
-const checkEmail = async(email) => {
+const checkEmail = async (email) => {
   try {
     const user = await db.User.findOne({ where: { email: email } });
-    if(user){
+    if (user) {
       return true;
-    }else{
+    } else {
       return false;
     }
   } catch (e) {
@@ -44,7 +44,7 @@ let registerService = async (data) => {
       role: "user",
     });
     console.log('abc');
-    
+
     return {
       errCode: 0,
       errMessage: "Register success",
@@ -76,7 +76,7 @@ let loginService = async (data) => {
       };
     }
     let user = await db.User.findOne({
-      attributes: ["id","email", "password","userName","role"],
+      attributes: ["id", "email", "password", "userName", "role"],
       where: { email: email },
       raw: true,
     });
@@ -89,8 +89,8 @@ let loginService = async (data) => {
     let check = await bcrypt.compare(password, user.password);
     if (check) {
       const token = jwt.sign(
-        { id: user.id, email: user.email, username: user.userName, role: user.role }, 
-        process.env.JWT_SECRET, 
+        { id: user.id, email: user.email, username: user.userName, role: user.role },
+        process.env.JWT_SECRET,
         { expiresIn: "1h" }
       );
       return {
@@ -102,8 +102,8 @@ let loginService = async (data) => {
           email: user.email,
           username: user.userName,
           role: user.role,
-          
-      }
+
+        }
       };
     } else {
       return {
@@ -115,55 +115,55 @@ let loginService = async (data) => {
     throw e;
   }
 };
-let getCafeTypeService = async() => {
+let getCafeTypeService = async () => {
   try {
     let cafeTypes = await db.CafeType.findAll();
     return ({
-        errCode: 0,
-        errMessage: 'Successfully fetched Cafe Types',
-        data: cafeTypes,
+      errCode: 0,
+      errMessage: 'Successfully fetched Cafe Types',
+      data: cafeTypes,
     });
   } catch (e) {
-      return ({
-          errCode: -1,
-          errMessage: 'Error while fetching Cafe Types',
-          error: e,
-      });
+    return ({
+      errCode: -1,
+      errMessage: 'Error while fetching Cafe Types',
+      error: e,
+    });
   }
 }
 
-let getPestDiseasesCategoryService = async() => {
+let getPestDiseasesCategoryService = async () => {
   try {
     let pestDiseasesCategory = await db.PestCategory.findAll();
     return ({
-        errCode: 0,
-        errMessage: 'Successfully fetched Pest Diseases Category',
-        data: pestDiseasesCategory,
+      errCode: 0,
+      errMessage: 'Successfully fetched Pest Diseases Category',
+      data: pestDiseasesCategory,
     });
   } catch (e) {
-      return ({
-          errCode: -1,
-          errMessage: 'Error while fetching Pest Diseases Category',
-          error: e,
-      });
+    return ({
+      errCode: -1,
+      errMessage: 'Error while fetching Pest Diseases Category',
+      error: e,
+    });
   }
-} 
+}
 
-let getPestDiseasesStagesService = async() => {
+let getPestDiseasesStagesService = async () => {
   try {
     let pestDiseasesStages = await db.GrowthStage.findAll();
     return ({
-        errCode: 0,
-        errMessage: 'Successfully fetched Pest Diseases Stages',
-        data: pestDiseasesStages,
+      errCode: 0,
+      errMessage: 'Successfully fetched Pest Diseases Stages',
+      data: pestDiseasesStages,
     });
   } catch (e) {
-      return ({
-          errCode: -1,
-          errMessage: 'Error while fetching Pest Diseases Stages',
-          error: e,
-      });
-  }         
+    return ({
+      errCode: -1,
+      errMessage: 'Error while fetching Pest Diseases Stages',
+      error: e,
+    });
+  }
 }
 let pestPredictionService = async (data, files) => {
   if (!files || !files.image || !files.image.data) {
@@ -301,7 +301,7 @@ const normalizeToWeekStart = (dateStr) => {
 
 const upsertWeeklyUpdateService = async (userId, farmId, payload) => {
   try {
-    const { weekStart, growthStageId, healthStatus, noteMarkdown, noteHTML, imageBase64 } = payload;
+    const { weekStart, growthStageId, healthStatus, noteMarkdown, noteHTML, file } = payload;
 
     const farm = await db.UserFarm.findOne({ where: { id: farmId, userId } });
     if (!farm) return { errCode: 1, errMessage: "Không tìm thấy nông trại" };
@@ -309,60 +309,42 @@ const upsertWeeklyUpdateService = async (userId, farmId, payload) => {
     const ws = normalizeToWeekStart(weekStart);
     if (!ws) return { errCode: 2, errMessage: "weekStart không hợp lệ" };
 
-    // upload image nếu có
+    const existed = await db.FarmWeeklyUpdate.findOne({ where: { farmId, weekStart: ws } });
+    if (existed) return { errCode: 3, errMessage: "Tuần này đã cập nhật rồi" };
+
     let image_url = null;
     let image_file_id = null;
-    if (imageBase64) {
+
+    // ✅ nếu có file (multipart/form-data)
+    if (file) {
       const uploadRes = await imageKit.upload({
-        file: imageBase64,
-        fileName: `farm_update_${farmId}_${ws}.jpg`,
+        file: file.data,        // 👈 giống farming model
+        fileName: file.name,
         folder: "/farm_updates",
       });
+
       image_url = uploadRes.url;
       image_file_id = uploadRes.fileId;
     }
 
-    const [record, created] = await db.FarmWeeklyUpdate.findOrCreate({
-      where: { farmId, weekStart: ws },
-      defaults: {
-        farmId,
-        weekStart: ws,
-        growthStageId: growthStageId || null,
-        healthStatus: healthStatus || "tot",
-        noteMarkdown: noteMarkdown || null,
-        noteHTML: noteHTML || null,
-        image_url,
-        image_file_id,
-      },
+    const record = await db.FarmWeeklyUpdate.create({
+      farmId,
+      weekStart: ws,
+      growthStageId: growthStageId || null,
+      healthStatus: healthStatus || "tot",
+      noteMarkdown: noteMarkdown || null,
+      noteHTML: noteHTML || null,
+      image_url,
+      image_file_id,
     });
-
-    if (!created) {
-      // nếu có review rồi thì không cho sửa nữa (tránh chỉnh sau khi admin đánh giá)
-      const review = await db.FarmUpdateReview.findOne({ where: { updateId: record.id } });
-      if (review) {
-        return { errCode: 3, errMessage: "Bản cập nhật đã được Admin đánh giá, không thể chỉnh sửa" };
-      }
-
-      // nếu upload ảnh mới thì xoá ảnh cũ (nếu có)
-      if (image_url && record.image_file_id) {
-        try { await imageKit.deleteFile(record.image_file_id); } catch (_) {}
-      }
-
-      await record.update({
-        growthStageId: growthStageId || record.growthStageId,
-        healthStatus: healthStatus || record.healthStatus,
-        noteMarkdown: noteMarkdown ?? record.noteMarkdown,
-        noteHTML: noteHTML ?? record.noteHTML,
-        image_url: image_url || record.image_url,
-        image_file_id: image_file_id || record.image_file_id,
-      });
-    }
 
     return { errCode: 0, errMessage: "OK", data: record };
   } catch (e) {
-    return { errCode: -1, errMessage: "Server error", error: e };
+    console.error(e);
+    return { errCode: -1, errMessage: "Server error" };
   }
 };
+
 
 module.exports = {
   registerService,
@@ -370,7 +352,7 @@ module.exports = {
   getCafeTypeService,
   getPestDiseasesCategoryService,
   getPestDiseasesStagesService,
-  pestPredictionService,  createMyFarmService,
+  pestPredictionService, createMyFarmService,
   getMyFarmsService,
   getFarmUpdatesService,
   upsertWeeklyUpdateService,

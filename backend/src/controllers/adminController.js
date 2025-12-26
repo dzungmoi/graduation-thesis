@@ -383,6 +383,17 @@ let createOrUpdateFarmReview = async (req, res) => {
     }
 };
 
+
+// ===================== ADMIN - DANH SÁCH NÔNG TRẠI =====================
+let getAllFarms = async (req, res) => {
+    try {
+        let data = await adminService.getAllFarmsService();
+        return res.status(200).json(data);
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+};
+
 module.exports = {
     getAllUser,
     createUser,
@@ -410,4 +421,5 @@ module.exports = {
     deleteFarmingModel,
     getTopPestPredictions,  getAllFarmWeeklyUpdates,
   createOrUpdateFarmReview,
+    getAllFarms,
 };
