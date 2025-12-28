@@ -12,7 +12,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     variety: '',
-    growthStage: '',
     descriptionMarkdown: '',
     descriptionHTML: ''
   });
@@ -23,7 +22,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
     if (!initialData) {
       setFormData({
         variety: '',
-        growthStage: '',
         descriptionMarkdown: '',
         descriptionHTML: ''
       });
@@ -34,7 +32,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
     if (isEditing && initialData) {
       setFormData({
         variety: initialData.variety || '',
-        growthStage: initialData.growthStage || '',
         descriptionMarkdown: initialData.descriptionMarkdown || '',
         descriptionHTML: initialData.descriptionHTML || ''
       });
@@ -68,6 +65,7 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
       const response = isEditing
         ? await updateCultivation(initialData.id, formData)
         : await createCultivation(formData);
+      console.log('res', response);
 
       if (response.data.errCode === 0) {
         // toast.success(isEditing ? 'Cập nhật thành công!' : 'Thêm mới thành công!');
@@ -83,7 +81,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
       // Reset form data after submission
       setFormData({
         variety: '',
-        growthStage: '',
         descriptionMarkdown: '',
         descriptionHTML: ''
       });
@@ -117,16 +114,6 @@ const CultivationForm = ({ initialData, onSuccess, onCancel }) => {
                 placeholder="Nhập giống cây trồng"
               />
             </div>
-            {/* <div className='form-group'>
-              <label>Giai đoạn phát triển</label>
-              <input
-                type="text"
-                name="growthStage"
-                value={formData.growthStage}
-                onChange={handleInputChange}
-                placeholder="Nhập giai doan phát triển"
-              />
-            </div> */}
           </div>
 
           <div className="form-group">

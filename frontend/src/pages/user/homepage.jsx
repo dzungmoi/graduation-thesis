@@ -26,13 +26,10 @@ const HomePage = () => {
             <section className="vp-banner">
                 <div className="banner-content">
                     <h2>CoffeViet</h2>
-                    <h3>Trợ lý ảo cho nhà nông</h3>
-                    <p>Ứng dụng Nông nghiệp thông minh dễ dàng tra cứu thông tin về cafe và tích hợp công nghệ AI,
+                    <h3>Trợ lý của nhà nông</h3>
+                    <p>Ứng dụng Nông nghiệp thông minh dễ dàng tra cứu thông tin về cafe,
                         giúp người nông dân dễ dàng chẩn đoán và theo dõi quá trình
                         canh tác cafe hiệu quả.</p>
-                    <button className="explore-btn" onClick={() => handleNavigation('/disease-detection')}>
-                        Khám phá ngay →
-                    </button>
                 </div>
                 <div className="banner-image">
                     <img src={Banner} alt="CoffeeViet Banner" />
@@ -42,12 +39,12 @@ const HomePage = () => {
                 <h3 className="features-title"> CÁC TÍNH NĂNG NỔI BẬT</h3>
                 <div className="feature-list-grid">
                     <div className="image-container">
-                        <img src="https://43factory.coffee/wp-content/uploads/2022/12/202301040805-Cac-loai-benh-tren-cay-ca-phe-thuong-gap-01.jpg" alt="AI chẩn đoán" />
+                        <img src="https://vivastarcoffee.com/wp-content/uploads/2024/01/cafe-23123f.jpg" alt="AI chẩn đoán" />
                     </div>
                     <FeatureCard
                         icon={<FaMicroscope />}
                         title="Nông trại của tôi"
-                        description="Chỉ cần chụp ảnh cây cafe, CoffeeViet sẽ đưa ra chẩn đoán và cách điều trị các loại sâu/bệnh bằng công nghệ nhận diện AI."
+                        description="Cập nhật tình trạng khu vườn để nhận đánh giá của chuyên gia."
                         buttonText="Xem ngay"
                         onClick={() => { window.scrollTo(0, 0); handleNavigation('/my-farm') }}
                     />

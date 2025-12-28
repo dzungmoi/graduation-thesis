@@ -601,19 +601,17 @@ let deletePestDiseaseService = async (pestId) => {
 let createCultivationService = async (cultivationData) => {
     try {
         let existingCultivation = await db.CultivationTechnique.findOne({
-            where: { region: cultivationData.region }
+            where: { variety: cultivationData.variety }
         });
         if (existingCultivation) {
             return {
                 errCode: 1,
-                errMessage: "Kỹ thuật canh tác cho vùng này đã tồn tại"
+                errMessage: "Kỹ thuật canh tác cho giống này đã tồn tại"
             };
         }
 
         let newCultivation = await db.CultivationTechnique.create({
-            region: cultivationData.region,
             variety: cultivationData.variety,
-            growthStage: cultivationData.growthStage,
             descriptionMarkdown: cultivationData.descriptionMarkdown,
             descriptionHTML: cultivationData.descriptionHTML,
         });
