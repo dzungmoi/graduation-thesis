@@ -22,9 +22,9 @@ const Sidebar = () => {
       </div>
 
       <ul className="menu">
-        <li className={isActive("/admin/dashboard") ? "active" : ""} onClick={() => navigate("/admin/dashboard")}>
+        {/* <li className={isActive("/admin/dashboard") ? "active" : ""} onClick={() => navigate("/admin/dashboard")}>
           <FaHome className="icon" /> Dashboard
-        </li>
+        </li> */}
 
         <li className={isActive("/admin/user-management") ? "active" : ""} onClick={() => navigate("/admin/user-management")}>
           <FaUser className="icon" /> Quản lý người dùng

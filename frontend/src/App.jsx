@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./components/user/ProtectedRoute";
 import Login from "./pages/auth/Login";
 import HomePage from "./pages/user/homepage";
-import Dashboard from "./pages/admin/Dashboard";
+// import Dashboard from "./pages/admin/Dashboard";
 import CafeManagement from "./pages/admin/CafeManagement";
 import CafeVariety from "./pages/user/CafeVariety";
 import CafeVarietyDetail from "./pages/user/CafeVarietyDetail";
@@ -29,7 +29,7 @@ function App() {
           {/* <Route path="/" element={<HomePage />} /> */}
           {/* Route bảo vệ dành cho Admin */}
           <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
-            <Route path="/admin/dashboard" element={<Dashboard />} />
+            {/* <Route path="/admin/dashboard" element={<Dashboard />} /> */}
             <Route path="/admin/cafe-management" element={< CafeManagement/>}/>
             <Route path="/admin/pest-diseases-management" element={<PestDiseaseManagement />} />
             <Route path="/admin/cultivation-management" element={<CultivationManagement />} />

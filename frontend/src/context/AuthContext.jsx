@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import {useNavigate} from "react-router-dom";
-import { login,getCurrentUser,logOut } from "../services/api";
+import { useNavigate } from "react-router-dom";
+import { login, getCurrentUser, logOut } from "../services/api";
 import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(userData); // lưu user vào state, không lưu localStorage nữa
 
                 if (userData.role === "admin") {
-                    navigate("/admin/dashboard");
+                    navigate("/admin/user-management");
                 } else {
                     navigate("/");
                 }
@@ -50,14 +50,14 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const logout = async() => {
+    const logout = async () => {
         setUser(null);
         await logOut()
         navigate("/login");
     };
 
     return (
-        <AuthContext.Provider value={{ user,loading, log_in, logout }}>
+        <AuthContext.Provider value={{ user, loading, log_in, logout }}>
             {children}
         </AuthContext.Provider>
     );
