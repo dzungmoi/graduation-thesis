@@ -41,8 +41,6 @@ let adminRoute = (app) => {
   router.put('/update-farming-model/:id',authenticateToken,authorizeAdmin, adminController.updateFarmingModel);
   router.delete('/delete-farming-model/:id',authenticateToken,authorizeAdmin,  adminController.deleteFarmingModel);
 
-  //topPestDiseasePrediction
-  router.get('/top-pest-predictions', adminController.getTopPestPredictions);
   return app.use("/admin", router);
 };
 

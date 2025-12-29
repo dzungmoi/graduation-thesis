@@ -222,7 +222,7 @@ const FarmReviewManagement = () => {
                           {u.review ? (
                             <div className="reviewed">
                               <div class>
-                                <b>{u.review.rating}/5</b>
+                                {/* <b>{u.review.rating}/5</b> */}
                                 {/* <div className="muted small">{u.review.comment || "(Không có nhận xét)"}</div> */}
                               </div>
                               <button className="btn" onClick={() => openReview(u)}><FaEdit /></button>
@@ -256,22 +256,12 @@ const FarmReviewManagement = () => {
               </div>
 
               <div className="drawer-info">
-                <div><b>Giai đoạn:</b> {selectedUpdate.growthStage?.name || "-"}</div>
                 <div><b>Tình trạng:</b> {selectedUpdate.healthStatus || "-"}</div>
-                <div className="note"><b>Ghi chú:</b>\n{selectedUpdate.noteMarkdown || ""}</div>
+                <div className="note"><b>Ghi chú:</b>{selectedUpdate.noteMarkdown || ""}</div>
               </div>
 
               <form onSubmit={submit} className="form">
-                <label>
-                  Rating (1-5)
-                  <input
-                    type="number"
-                    min="1"
-                    max="5"
-                    value={form.rating}
-                    onChange={(e) => setForm({ ...form, rating: e.target.value })}
-                  />
-                </label>
+               
 
                 <label>
                   Nhận xét / hướng dẫn cho user
