@@ -222,8 +222,6 @@ const FarmReviewManagement = () => {
                           {u.review ? (
                             <div className="reviewed">
                               <div class>
-                                {/* <b>{u.review.rating}/5</b> */}
-                                {/* <div className="muted small">{u.review.comment || "(Không có nhận xét)"}</div> */}
                               </div>
                               <button className="btn" onClick={() => openReview(u)}><FaEdit /></button>
                             </div>
@@ -261,15 +259,12 @@ const FarmReviewManagement = () => {
               </div>
 
               <form onSubmit={submit} className="form">
-               
-
                 <label>
                   Nhận xét / hướng dẫn cho user
                   <textarea
                     rows={6}
                     value={form.comment}
                     onChange={(e) => setForm({ ...form, comment: e.target.value })}
-                    placeholder="VD: Tuần này cây có dấu hiệu thiếu nước, bạn nên tưới bổ sung 20–30 lít/cây và theo dõi sâu rệp..."
                   />
                 </label>
 
