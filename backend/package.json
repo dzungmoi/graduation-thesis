@@ -1,0 +1,41 @@
+{
+    "name": "coffee",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "jest",
+        "test:coverage": "nyc jest",
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js",
+        "build-src": "babel src -d build --copy-files",
+        "build": "node build/server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "bcryptjs": "^3.0.2",
+        "body-parser": "^1.20.3",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "express-fileupload": "^1.5.1",
+        "imagekit": "^6.0.0",
+        "jsonwebtoken": "^9.0.2",
+        "morgan": "^1.10.0",
+        "mysql2": "^3.11.3",
+        "sequelize": "^6.37.5"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.29.0",
+        "@babel/preset-env": "^7.29.2",
+        "babel-jest": "^30.3.0",
+        "exceljs": "^4.4.0",
+        "jest": "^30.3.0",
+        "nodemon": "^3.1.10",
+        "nyc": "^18.0.0",
+        "sequelize-cli": "^6.6.2"
+    }
+}

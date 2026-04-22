@@ -1,0 +1,10 @@
+Test Case ID,File Name/Class Name,Test Objective,Input,Expected Output,Notes
+TC-US-001,userService.registerService,Test successful user registration,{ email: 'test@example.com', password: 'password', username: 'testuser' },{ errCode: 0, errMessage: 'Register success' },Mock DB and bcrypt
+TC-US-002,userService.registerService,Test registration with existing email,{ email: 'existing@example.com', password: 'password', username: 'testuser' },{ errCode: 1, errMessage: 'Email exists, please try another email!' },Mock DB findOne returns user
+TC-US-003,userService.loginService,Test successful login,{ email: 'test@example.com', password: 'password' },{ errCode: 0, errMessage: 'Login success', token: 'jwt_token' },Mock DB and bcrypt compare
+TC-US-004,userService.loginService,Test login with non-existent email,{ email: 'nonexistent@example.com', password: 'password' },{ errCode: 1, errMessage: 'Your email is not exist in our system...' },Mock DB findOne returns null
+TC-US-005,userService.loginService,Test login with wrong password,{ email: 'test@example.com', password: 'wrong' },{ errCode: 1, errMessage: 'Password wrong!' },Mock bcrypt compare returns false
+TC-AS-001,adminService.createUserService,Test successful user creation,{ email: 'new@example.com', password: 'pass', username: 'new', role: 'user', image: 'img.jpg' },{ errCode: 0, errMessage: 'User created successfully' },Mock DB and bcrypt
+TC-AS-002,adminService.createUserService,Test creation with existing email,{ email: 'existing@example.com', password: 'pass', username: 'user' },{ errCode: 1, errMessage: 'Email already exists' },Mock DB findOne returns user
+TC-AS-003,adminService.updateUserService,Test successful user update,1, { username: 'updated', role: 'admin', image: 'new.jpg' },{ errCode: 0, errMessage: 'User updated successfully' },Mock DB findOne and save
+TC-AS-004,adminService.updateUserService,Test update non-existent user,999, { username: 'user' },{ errCode: 1, errMessage: 'User not found' },Mock DB findOne returns null

@@ -1,0 +1,490 @@
+
+> coffee@1.0.0 test
+> jest
+
+  console.log
+    abc
+
+      at log (src/services/userService.js:46:13)
+
+  console.log
+    {
+      name: 'Arabica Premium',
+      description: 'High quality arabica',
+      descriptionMarkdown: '# Arabica',
+      descriptionHTML: '<h1>Arabica</h1>',
+      cafeTypeIds: [ 1, 2 ]
+    }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    { image: { data: <Buffer 69 6d 61 67 65>, name: 'arabica.jpg' } }
+
+      at log (src/services/adminService.js:86:13)
+
+  console.log
+    {
+      name: 'Robusta',
+      description: 'Robusta variety',
+      descriptionMarkdown: '# Robusta',
+      descriptionHTML: '<h1>Robusta</h1>'
+    }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    {}
+
+      at log (src/services/adminService.js:86:13)
+
+  console.log
+    { name: 'Arabica', description: 'Test' }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    {}
+
+      at log (src/services/adminService.js:86:13)
+
+  console.log
+    { name: 'Liberica', description: 'Liberica variety' }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    { image: { data: <Buffer 69 6d 61 67 65>, name: 'liberica.jpg' } }
+
+      at log (src/services/adminService.js:86:13)
+
+  console.error
+    Create cultivation error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 623 |[39m         }[33m;[39m
+     [90m 624 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 625 |[39m         console[33m.[39merror([32m"Create cultivation error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 626 |[39m         [36mreturn[39m {
+     [90m 627 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 628 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:625:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    ImageKit upload error: Error: Upload failed
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:82:41
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cafeManagement.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 113 |[39m             imageFileId [33m=[39m uploadRes[33m.[39mfileId[33m;[39m
+     [90m 114 |[39m         } [36mcatch[39m (err) {
+    [31m[1m>[22m[39m[90m 115 |[39m             console[33m.[39merror([32m"ImageKit upload error:"[39m[33m,[39m err)[33m;[39m
+     [90m     |[39m                     [31m[1m^[22m[39m
+     [90m 116 |[39m             [36mreturn[39m {
+     [90m 117 |[39m                 errCode[33m:[39m [35m2[39m[33m,[39m
+     [90m 118 |[39m                 errMessage[33m:[39m [32m"Upload ảnh thất bại"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:115:21)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.log
+    { name: 'Excelsa', description: 'Excelsa variety' }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    {}
+
+      at log (src/services/adminService.js:86:13)
+
+  console.log
+    { name: 'Typica', description: 'Typica variety', cafeTypeIds: [] }
+
+      at log (src/services/adminService.js:85:13)
+
+  console.log
+    {}
+
+      at log (src/services/adminService.js:86:13)
+
+  console.error
+    Update error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 680 |[39m         }[33m;[39m
+     [90m 681 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 682 |[39m         console[33m.[39merror([32m"Update error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 683 |[39m         [36mreturn[39m {
+     [90m 684 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 685 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:682:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Update error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 680 |[39m         }[33m;[39m
+     [90m 681 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 682 |[39m         console[33m.[39merror([32m"Update error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 683 |[39m         [36mreturn[39m {
+     [90m 684 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 685 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:682:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Update error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 680 |[39m         }[33m;[39m
+     [90m 681 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 682 |[39m         console[33m.[39merror([32m"Update error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 683 |[39m         [36mreturn[39m {
+     [90m 684 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 685 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:682:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Create pest disease error: Error: Upload failed
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:79:41
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\pestDiseaseManagement.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 369 |[39m
+     [90m 370 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 371 |[39m         console[33m.[39merror([32m"Create pest disease error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 372 |[39m         [36mreturn[39m {
+     [90m 373 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 374 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:371:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Update error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 680 |[39m         }[33m;[39m
+     [90m 681 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 682 |[39m         console[33m.[39merror([32m"Update error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 683 |[39m         [36mreturn[39m {
+     [90m 684 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 685 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:682:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Delete error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 707 |[39m         }[33m;[39m
+     [90m 708 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 709 |[39m         console[33m.[39merror([32m"Delete error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 710 |[39m         [36mreturn[39m {
+     [90m 711 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 712 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:709:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Delete error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 707 |[39m         }[33m;[39m
+     [90m 708 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 709 |[39m         console[33m.[39merror([32m"Delete error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 710 |[39m         [36mreturn[39m {
+     [90m 711 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 712 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:709:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
+  console.error
+    Delete error: Error: DB error
+        at C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:71:57
+        at Generator.call (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Generator._invoke [as next] (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at asyncGeneratorStep (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at _next (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at new Promise (<anonymous>)
+        at Object.<anonymous> (C:\Users\Admin\Downloads\graduation-thesis-main\backend\src\services\__tests__\cultivationTechnique.test.js:2:1)
+        at Promise.finally.completed (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at processTicksAndRejections (node:internal/process/task_queues:105:5)
+        at _runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:275:16)
+        at runTest (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:343:7)
+        at Object.worker (c:\Users\Admin\Downloads\graduation-thesis-main\backend\node_modules\jest-runner\build\testWorker.js:497:12)
+
+    [0m [90m 707 |[39m         }[33m;[39m
+     [90m 708 |[39m     } [36mcatch[39m (e) {
+    [31m[1m>[22m[39m[90m 709 |[39m         console[33m.[39merror([32m"Delete error:"[39m[33m,[39m e)[33m;[39m
+     [90m     |[39m                 [31m[1m^[22m[39m
+     [90m 710 |[39m         [36mreturn[39m {
+     [90m 711 |[39m             errCode[33m:[39m [33m-[39m[35m1[39m[33m,[39m
+     [90m 712 |[39m             errMessage[33m:[39m [32m"Lỗi server"[39m[33m,[39m[0m
+
+      at error (src/services/adminService.js:709:17)
+      at Generator.call (src/services/adminService.js:2:1)
+      at Generator._invoke [as throw] (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+      at asyncGeneratorStep (src/services/adminService.js:2:1)
+
